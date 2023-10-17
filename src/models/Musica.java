@@ -7,7 +7,7 @@ public class Musica extends Audio {
     private String cantor;
     private String genero;
 
-    public Musica(String titulo, int totalReproducoes, int totalCurtidas, String classificacao, String album, String cantor, String genero) {
+    public Musica(String titulo, int totalReproducoes, int totalCurtidas, double classificacao, String album, String cantor, String genero) {
         super(titulo, totalReproducoes, totalCurtidas, classificacao);
         this.album = album;
         this.cantor = cantor;
@@ -36,5 +36,14 @@ public class Musica extends Audio {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    @Override
+    public double getClassificacao() {
+        if(this.getTotalReproducoes() > 2000) {
+            return 10;
+        } else {
+            return 8;
+        }
     }
 }
